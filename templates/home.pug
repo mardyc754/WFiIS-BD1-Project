@@ -1,0 +1,23 @@
+extends layout.pug
+
+block navbar 
+    - var guestLink = '/loginGuest';
+    - var employeeLink = '/loginEmployee';
+    if guestId
+        - guestLink = '/guest'
+
+    if employeeId
+        - employeeLink = '/employee'
+
+    button
+        a(href=guestLink) Panel wynajmującego
+    button
+        a(href=employeeLink) Panel pracownika
+    button
+        a(href="/hotels") Przeglądaj hotele
+    if guestId || employeeId 
+        button
+            a(href="/logout") Wyloguj się
+
+block content
+    h3(style="text-align: center;") Witaj w symulatorze hoteli!

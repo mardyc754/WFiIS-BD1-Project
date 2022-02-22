@@ -1,0 +1,19 @@
+extend layout.pug
+
+block navbar
+    <button onclick="createNewHotelForm(#{employeeId})">Utwórz hotel</button>
+    <button onclick="loadEmployeeHotels(#{employeeId})">Wyświetl swoje hotele</button>
+
+block content
+    #employeeHotels
+
+    nav#buttonArea
+
+    #tableContent
+
+    #submenu
+    
+    p#actionStatus
+
+    button#mainMenuButton
+        a(href="/") Powrót do menu głównego

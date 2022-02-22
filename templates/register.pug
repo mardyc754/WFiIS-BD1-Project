@@ -1,0 +1,37 @@
+extends layout.pug
+
+block navbar 
+    button
+        a(href="/") Powrót do menu głównego
+
+block content 
+    h3(style="text-align: center") Witaj w symulatorze hoteli!
+    if role === 'Guest'
+        p(style="text-align: center") Zarejestruj się jako Gość
+    else 
+        p(style="text-align: center") Zarejestruj się jako Pracownik
+
+    form(name="register" method="POST" onsubmit=`registrationHandler(event, '${role}')`)
+        label(for="name") Imię:        
+        input(type="text" name="name" id="name")
+        br
+        label(for="lastName") Nazwisko:     
+        input(type="text" name="lastName" id="lastName")
+        br
+        label(for="phone") Telefon:      
+        input(type="text" name="phone" id="phone")
+        br
+        label(for="email") Adres e-mail: 
+        input(type="email" name="email" id="email")
+        br
+        label(for="password") Hasło: 
+        input(type="password" name="password" id="password")
+        input(type="submit" value="Zarejestruj się")
+
+    p#actionStatus
+
+    p Masz już konto? Zaloguj się!
+    
+    button
+        a(href=`/login${role}`) Logowanie
+

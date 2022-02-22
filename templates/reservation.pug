@@ -1,0 +1,46 @@
+extend layout.pug
+
+block navbar 
+    button
+        a(href="/") Powrót do menu głównego
+
+block content
+    - var guestId = locals.guestId;
+
+    p(style="text-align:right; margin: 20px 30px; font-size: large") Twoje pieniądze: 
+        span#guestMoney
+
+    form(name="reservationForm")
+
+        .inside-form
+            label(for="hotelSelect") Wybierz hotel:
+            br
+            select#hotelSelect(name="hotel" onclick="displayRoomsInHotel(event)")
+            br
+            input(type="button" onclick="loadHotelDescription(event)" value="Wyświetl opis hotelu")
+            #hotelDescription
+
+            label(for="roomSelect") Wybierz pokój:
+            br
+            select#roomSelect(name="room")
+            br
+
+            input(type="button" onclick="loadRoomDescription(event)" value="Wyświetl opis pokoju")
+
+            #roomDescription
+            #roomInfo
+
+            label(for="startDate") Data rozpoczęcia
+            br
+            input#startDate(type="date")
+            br
+            label(for="endDate") Data zakończenia:
+            br
+            input#endDate(type="date") 
+            br
+            input(type="button" 
+                  value="Zarezerwuj pokój" 
+                  onclick=`makeReservation(${guestId})`)
+            
+    #tableContent
+    p#actionStatus

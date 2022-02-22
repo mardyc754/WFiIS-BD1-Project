@@ -1,0 +1,15 @@
+extends layout.pug
+
+block navbar 
+    button
+        a(href="/hotels") Przeglądaj hotele
+    button
+        a(href="/employee/hotels") Zarządzaj hotelami...
+    button(onclick=`checkSalaries(${locals.employeeId})`) Sprawdź wynagrodzenia
+    button(onclick="displayEmployeeInfo(event)") Wyświetl informacje
+    button
+        a(href="/logout") Wyloguj się
+
+block content
+    h3(style="text-align: center") Witaj w symulatorze hoteli!
+    #tableContent

@@ -1,0 +1,24 @@
+extends layout.pug
+
+block navbar 
+    - var guestId = locals.guestId
+    button
+        a(href="/guest/makeReservation") Dokonaj rezerwacji pokoju
+    button(onclick="guestReservations(event)") Przeglądaj swoje rezerwacje
+    button(onclick=`selectService(${guestId})`) Wybierz usługę
+    button
+        a(href="/hotels") Przeglądaj hotele
+    button(onclick="displayGuestInfo(event)") Wyświetl informacje
+    button
+        a(href="/logout") Wyloguj się
+
+block content 
+    h3(style="text-align:center;") Witaj w symulatorze hoteli!
+    p(style="text-align:right; margin: 20px 30px; font-size: large") Twoje pieniądze: 
+        span#guestMoney
+
+    #guestReservations
+
+    #tableContent
+    p#actionStatus
+
